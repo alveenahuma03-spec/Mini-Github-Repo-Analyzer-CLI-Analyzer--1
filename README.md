@@ -12,5 +12,4 @@ Requirements
 - requests library
 
 Install dependencies:
-```bash
 pip install requests
