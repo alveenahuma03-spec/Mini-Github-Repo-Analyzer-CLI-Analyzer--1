@@ -1,14 +1,14 @@
 import requests
 
-repo_url = input("Enter GitHub repo URL: ")
+repository_url = input("Enter GitHub repository URL: ")
 
 # extract owner/repo
-parts = repo_url.strip().split("/")
-owner = parts[-2]
-repo = parts[-1]
+part = repository_url.strip().split("/")
+owner = part[-2]
+repository = part[-1]
 
 # GitHub API
-url = f"https://api.github.com/repos/{owner}/{repo}/languages"
+url = f"https://api.github.com/repos/{owner}/{repository}/languages"
 res = requests.get(url)
 
 if res.status_code != 200:
@@ -17,7 +17,10 @@ if res.status_code != 200:
 
 languages = res.json()
 
-print("\nRepo:", repo)
-print("Languages used:")
-for lang, bytes_used in languages.items():
-    print(f"- {lang}")
+if languages:
+    print("\nRepo:", repository)
+    print("Languages found:")
+    for lang, bytes_used in languages.items():
+        print(f"- {lang}")
+else:
+    print("Not found! Was not able to fetch data")
