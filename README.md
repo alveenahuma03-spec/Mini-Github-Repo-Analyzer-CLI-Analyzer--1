@@ -14,3 +14,9 @@ Requirements
 Install dependencies:
 
 pip install requests
+
+Run the script:
+python analyzer.py
+
+Enter a GitHub repository URL when prompted:
+Enter GitHub repo URL: https://github.com/user/repo
